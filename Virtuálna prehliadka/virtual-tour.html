@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virtuálna prehliadka</title>
+<link rel="stylesheet" href="virtual-tour.css">
+</head>
+<body>
+<div id="loading"><div class="loader-ring"></div><p id="load-msg">Inicializujem…</p></div>
+<div id="canvas-container"></div>
+<div id="crosshair"></div>
+<div id="hud-top">
+  <span id="tour-title">Virtuálna prehliadka</span>
+  <div><div id="waypoint-label">—</div><div id="waypoint-sub">zastávka</div></div>
+</div>
+<div id="hint">Použi ← → klávesy alebo tlačidlá nižšie</div>
+<div id="nav-bar">
+  <button id="prev-btn">&#8592;</button>
+  <div id="wp-buttons"></div>
+  <button id="next-btn">&#8594;</button>
+  <div id="progress"></div>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module" src="virtual-tour.js"></script>
+</body>
+</html>
