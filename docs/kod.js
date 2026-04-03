@@ -18,7 +18,7 @@ const CONFIG = {
       cam: { x: 1.94, y: -0.05, z: 0.79 }, tgt: { x: 1.85, y: -0.05, z: 0.84 },
       orbPos: { x: -7.75, y: -5.5, z: 7 }, hideFromNav: true },
     { name: 'Ubytovacia chodba', model: 'Budova.glb', targetModel: 'Ubytovanie.glb',
-      cam: { x: 8.52, y: -1.48, z: -0.38 }, tgt: { x: 8.42, y: -1.48, z: -0.38 },
+      cam: { x: 8, y: -1.48, z: -0.38 }, tgt: { x: 7, y: -1.48, z: -0.38 },
       orbPos: { x: 12, y: -4.5, z: -12.2 }, hideFromNav: true },
     { name: 'Centrum',          model: 'Budova.glb', targetModel: 'Centrum.glb',
       cam: { x: 14.77, y: -0.05, z: -0.78 },  tgt: { x: 13.78, y: -0.14, z: -0.75 },
@@ -34,6 +34,11 @@ const CONFIG = {
       orbPos: null,
     },
     // -- Orby --
+    {
+      name: 'Exit',  model: 'Vchod.glb',  targetModel: 'Budova.glb',
+      cam: { x: -34.39, y: 5.93, z: 20.03 },  tgt: { x: -4.87, y: -2.83, z: 2.23 },
+      orbPos: { x: -1.5, y: -0.65, z: 5.0 },  hideFromNav: true,
+    },
     {
       name: 'Centrum',  model: 'Vchod.glb',  targetModel: 'Centrum.glb',
       cam: { x: -0.55, y: -0.03, z: -0.22 },   tgt: { x: 0.21, y: -0.12, z: 0.42 },
@@ -54,20 +59,20 @@ const CONFIG = {
       cam: { x: 0.38, y: -2.12, z: 5.45 },  tgt: { x: 0.37, y: -2.04, z: 4.45 },
       orbPos: { x: 5, y: -0.65, z: -6.5}, hideFromNav: true,
     },
-    { name: '2. poschodie', model: 'Vchod.glb',
+    { name: '1. poschodie', model: 'Vchod.glb',
       cam: { x: -2.11, y: 3.58, z: 2.01 },   tgt: { x: -1.11, y: 3.47, z: 2.04 },
       orbPos: { x: -4, y: -0.65, z: 1.10 },  hideFromNav: true
     },
-    { name: '1. poschodie', model: 'Vchod.glb',
+    { name: 'Prízemie', model: 'Vchod.glb',
       cam: { x: 1.94, y: -0.05, z: 0.79 }, tgt: { x: 1.85, y: -0.05, z: 0.84 },
       orbPos: { x: -3.14, y: 3.0, z: 2.91},  hideFromNav: true
     },
-    { name: '2. poschodie', model: 'Vchod.glb',
+    { name: '1. poschodie', model: 'Vchod.glb',
       cam: { x: -2.09, y: 3.58, z: 2.01 },    tgt: { x: -2.10, y: 3.58, z: 2.01 },
       orbPos: { x: -2.8, y: 6.5, z: 2.91  },  hideFromNav: true
 
     },
-    { name: '3. poschodie', model: 'Vchod.glb',
+    { name: '2. poschodie', model: 'Vchod.glb',
       cam: { x: -1.83, y: 7.06, z: 1.34 },   tgt: { x: -2.53, y: 6.98, z: 0.62 },
       orbPos: { x: -3.21, y: 3, z: 1.18 },  hideFromNav: true
     },
@@ -89,22 +94,22 @@ const CONFIG = {
     {
       name: 'Počítačová učebňa',  model: 'Vchod.glb', targetModel: 'Infmiestnosť.glb',
       cam: { x: -0.68, y: -0.13, z: 1.67 },   tgt: { x: -0.74, y: -0.20, z: 2.67 },
-      orbPos: { x: -1.25, y: 6.8, z: 3.28 }, hideFromNav: true,
+      orbPos: { x: -1.25, y: 6.8, z: 3 }, hideFromNav: true,
     },
     {
       name: 'Učebna 1',  model: 'Vchod.glb', targetModel: 'UC1.glb',
       cam: { x: -2.69, y: -0.41, z: -0.39 },   tgt: { x: -1.70, y: -0.54, z: -0.42 },
-      orbPos: { x: -11, y: 6.8, z: -5.17 }, hideFromNav: true,
+      orbPos: { x: -11, y: 6.8, z: -5 }, hideFromNav: true,
     },
     {
       name: 'Učebna 2',  model: 'Vchod.glb', targetModel: 'UC2.glb',
       cam: { x: -1.45, y: -0.53, z: -0.27 },    tgt: { x: -0.46, y: -0.60, z: -0.44 },
-      orbPos: { x: -13.53, y: 6.8, z: -5.17  }, hideFromNav: true,
+      orbPos: { x: -13.53, y: 6.8, z: -5  }, hideFromNav: true,
     },
     {
       name: 'Tanečná sála',  model: 'Vchod.glb', targetModel: 'Tanecna.glb',
       cam: { x: -0.21, y: -0.40, z: 1.83 }, tgt: { x: 0.79, y: -0.41, z: 1.83 },
-      orbPos: { x: -0.55, y: 3.25, z: 1.95  }, hideFromNav: true,
+      orbPos: { x: -0.75, y: 3.25, z: 1.95  }, hideFromNav: true,
     },
 
     //Centrum (Centrum.glb)
@@ -120,25 +125,25 @@ const CONFIG = {
     },
     {
       model: 'Centrum.glb',
-      cam: { x: -0.55, y: -0.03, z: -0.22 },  tgt: { x: -0.54, y: -0.03, z: -0.21 },
+      cam: { x: -0.55, y: -0.03, z: -0.22 },  tgt: null,
       orbPos: { x: -0.55, y: -0.5, z: -0.22 },
       hideFromNav: true, hideLabel: true
     },
     {
       model: 'Centrum.glb',
-      cam: { x: -0.29, y: -0.05, z: 5.16 }, tgt: { x: 0.47, y: -0.15, z: 5.79 },
+      cam: { x: -0.29, y: -0.05, z: 5.16 }, tgt: null,
       orbPos: { x: -0.29, y: -0.5, z: 5.16 },
       hideFromNav: true, hideLabel: true
     },
     {
       model: 'Centrum.glb',
-      cam: { x: 3.70, y: -0.11, z: 5.34 },  tgt: { x: 4.68, y: -0.21, z: 5.47 },
+      cam: { x: 3.70, y: -0.11, z: 5.34 },  tgt: null,
       orbPos: { x: 3.70, y: -0.5, z: 5.34 },
       hideFromNav: true, hideLabel: true
     },
     {
       model: 'Centrum.glb',
-      cam: { x: 9.14, y: -0.12, z: -0.77 }, tgt: { x: 10.13, y: -0.22, z: -0.78 },
+      cam: { x: 9.14, y: -0.12, z: -0.77 }, tgt: null,
       orbPos: { x: 9.14, y: -0.5, z: -0.77 },
       hideFromNav: true, hideLabel: true
     },
@@ -190,7 +195,7 @@ const CONFIG = {
     {
       name: 'Vstupná hala',  model: 'Ubytovanie.glb',  targetModel: 'Vchod.glb',
       cam: { x: 1.94, y: -0.05, z: 0.79 }, tgt: { x: 1.85, y: -0.05, z: 0.84 },
-      orbPos: { x: 0.31, y: -2.5, z: 6.37 }, hideFromNav: true,
+      orbPos: { x: 0.31, y: -2.65, z: 6.15 }, hideFromNav: true,
     },
     {
       name: 'Exit',  model: 'Ubytovanie.glb',  targetModel: 'Budova.glb',
@@ -200,12 +205,8 @@ const CONFIG = {
 
     //Sala 1 (Sala1.glb)
     {
-      name: 'Sála 1',
-      desc: 'Prvá sála',
-      model: 'Sala1.glb',
-      cam:    null,
-      tgt:    null,
-      orbPos: null,
+      name: 'Sála 1', model: 'Sala1.glb',
+      cam: { x: -0.03, y: -0.53, z: -0.30 },     tgt: { x: -0.03, y: -0.54, z: -0.20 },
     },
     // --Orby--
     {
@@ -309,7 +310,7 @@ const CONFIG = {
     {
       name: 'Tanečná miestnosť',  model: 'Kapela.glb',  targetModel: 'Tanecna.glb',
       cam: { x: -0.21, y: -0.40, z: 1.83 }, tgt: { x: 0.79, y: -0.41, z: 1.83 },
-      orbPos: { x: 2.5, y: -0.7, z: -0.81  }, hideFromNav: true,
+      orbPos: { x: 2.25, y: -0.7, z: -0.81  }, hideFromNav: true,
     },
 
     // Predsieň (Chodba.glb)
@@ -343,7 +344,7 @@ const CONFIG = {
     {
       name: 'Predsieň',  model: 'Sklad.glb',  targetModel: 'Chodba.glb',
       cam: { x: -2.13, y: -0.21, z: -0.16 },    tgt: { x: -1.21, y: -0.53, z: 0.09 },
-      orbPos: { x: -0.65, y: -0.9, z: -1.8 }, hideFromNav: true,
+      orbPos: { x: -0.65, y: -0.9, z: -1.30 }, hideFromNav: true,
     },
 
     //  Šatňa (Satna.glb)
@@ -355,7 +356,7 @@ const CONFIG = {
     {
       name: 'Predsieň',  model: 'Satna.glb',  targetModel: 'Chodba.glb',
       cam: { x: -2.13, y: -0.21, z: -0.16 },    tgt: { x: -1.21, y: -0.53, z: 0.09 },
-      orbPos: { x: -2.25, y: -0.9, z: -2.02  }, hideFromNav: true,
+      orbPos: { x: -2.15, y: -0.9, z: -2.02  }, hideFromNav: true,
     },
 
     // Učebňa Informatiky (Infmiestnosť.glb)
@@ -365,7 +366,7 @@ const CONFIG = {
     },
     // --Orby--
     {
-      name: 'Chodba 3 poschodie',  model: 'Infmiestnosť.glb',  targetModel: 'Vchod.glb',
+      name: 'Chodba 2. poschodie',  model: 'Infmiestnosť.glb',  targetModel: 'Vchod.glb',
       cam: { x: -1.83, y: 7.06, z: 1.34 },   tgt: { x: -2.53, y: 6.98, z: 0.62 },
       orbPos: { x: -0.85, y: -0.5, z: -1   }, hideFromNav: true,
     },
@@ -377,7 +378,7 @@ const CONFIG = {
     },
     // --Orby--
     {
-      name: 'Chodba 3 poschodie',  model: 'UC1.glb',  targetModel: 'Vchod.glb',
+      name: 'Chodba 2. poschodie',  model: 'UC1.glb',  targetModel: 'Vchod.glb',
       cam: { x: -12.17, y: 7.10, z: -4.13 },      tgt: { x: -12.15, y: 7.05, z: -5.13 },
       orbPos: { x: -1.96, y: -0.7, z: 2.5   }, hideFromNav: true,
     },
@@ -389,7 +390,7 @@ const CONFIG = {
     },
     // --Orby--
     {
-      name: 'Chodba 3 poschodie',  model: 'UC2.glb',  targetModel: 'Vchod.glb',
+      name: 'Chodba 2. poschodie',  model: 'UC2.glb',  targetModel: 'Vchod.glb',
       cam: { x: -12.17, y: 7.10, z: -4.13 },      tgt: { x: -12.15, y: 7.05, z: -5.13 },
       orbPos: { x: 1.89, y: -0.7, z: 2.5    }, hideFromNav: true,
     },
@@ -401,22 +402,22 @@ const CONFIG = {
 
   labels: [
     // Centrum.glb Texty
-    { text: 'Študentský parlament UKF S-1', model: 'Centrum.glb', pos: { x: -2, y: -0.1, z: -0.5 }, scale: 0.5 },
-    { text: 'Erasmus Student Network UKF S-2', model: 'Centrum.glb', pos: { x: -2, y: -0.1, z: 5.49 }, scale: 0.5 },
-    { text: 'Psychologické, Kariérne a Zdravotné Poradenstvo S-3', model: 'Centrum.glb', pos: { x: -2, y: -0.1, z: 7.63 }, scale: 0.5 },
-    { text: 'Poradňa pre študentov so špecifickými potrebami S-4', model: 'Centrum.glb', pos: { x: 4, y: -0.1, z: 6 }, scale: 0.5 },
+    { text: 'Študentský parlament UKF S-1', model: 'Centrum.glb', pos: { x: -1.5, y: -0.1, z: -0.40 }, scale: 0.5 },
+    { text: 'Erasmus Student Network UKF S-2', model: 'Centrum.glb', pos: { x: -1.5, y: -0.1, z: 5.49 }, scale: 0.5 },
+    { text: 'Psychologické, Kariérne a Zdravotné Poradenstvo S-3', model: 'Centrum.glb', pos: { x: -1.5, y: -0.1, z: 7 }, scale: 0.5 },
+    { text: 'Poradňa pre študentov so špecifickými potrebami S-4', model: 'Centrum.glb', pos: { x: 4.10, y: -0.1, z: 6 }, scale: 0.5 },
     { text: 'Manažér centra S-5', model: 'Centrum.glb', pos: { x: 6.18, y: -0.1, z: 5.25 }, scale: 0.5 },
-    { text: 'Kuchynka', model: 'Centrum.glb', pos: { x: 5.92, y: -0.1, z: 0 }, scale: 0.5 },
-    { text: 'Kuchynka', model: 'Centrum.glb', pos: { x: 5.92, y: -0.1, z: 4.3 }, scale: 0.5 },
+    { text: 'Kuchynka', model: 'Centrum.glb', pos: { x: 6, y: -0.1, z: -0.15 }, scale: 0.5 },
+    { text: 'Kuchynka', model: 'Centrum.glb', pos: { x: 5.0, y: -0.1, z: 4.70 }, scale: 0.5 },
     { text: 'Wc', model: 'Centrum.glb', pos: { x: 7.79, y: -0.1, z: 0 }, scale: 0.5 },
     // Ubytovanie.glb Texty
-    { text: 'Ubytovňa', model: 'Ubytovanie.glb', pos: { x: 6.40, y: -1.25, z: -2.0 }, scale: 0.5 },
+    { text: 'Ubytovňa', model: 'Ubytovanie.glb', pos: { x: 6.40, y: -1.25, z: -1.75 }, scale: 0.5 },
     // Tanečná sála.glb Texty
     { text: 'Sklad', model: 'Tanecna.glb', pos: { x: -2.8, y: -0.2, z: 5.04}, scale: 0.5 },
     { text: 'Miestnosť pre upratovačku', model: 'Tanecna.glb', pos: {x: -0.41, y: -0.2, z: -6.28}, scale: 0.5 },
     // Vchod.glb Texty
-    { text: 'Kancelária', model: 'Vchod.glb', pos: {x: -0.5, y: 7.25, z: 1.40}, scale: 0.5 },
-    { text: 'Kancelária', model: 'Vchod.glb', pos: {x: -0.5, y: 7.25, z: -3.40}, scale: 0.5 },
+    { text: 'Kancelária', model: 'Vchod.glb', pos: {x: -0.70, y: 7.25, z: 1.40}, scale: 0.5 },
+    { text: 'Kancelária', model: 'Vchod.glb', pos: {x: -0.70, y: 7.25, z: -3.40}, scale: 0.5 },
   ],
 };
 
@@ -456,7 +457,6 @@ controls.minDistance = 0.5;
 controls.maxDistance = 500;
 controls.maxPolarAngle = Math.PI * 0.85;
 controls.screenSpacePanning = true;
-// Vypni defaultny zoom - pouzijeme vlastny
 controls.enableZoom = false;
 
 // Vlastny zoom
@@ -468,8 +468,17 @@ renderer.domElement.addEventListener('wheel', event => {
 
   if (isInterior) {
     // Interiér: zoom cez FOV - kamera ostáva na mieste, len sa mení zorný uhol
-    const fovStep = event.deltaY > 0 ? 4 : -4;
-    camera.fov = Math.max(30, Math.min(90, camera.fov + fovStep));
+    if (event.deltaY > 0) {
+      camera.fov = camera.fov + 4;
+    } else {
+      camera.fov = camera.fov - 4;
+    }
+    if (camera.fov < 30) {
+      camera.fov = 30;
+    }
+    if (camera.fov > 90) {
+      camera.fov = 90;
+    }
     camera.updateProjectionMatrix();
   } else {
     // Exteriér: klasický zoom s plynulým spomalením
@@ -489,8 +498,6 @@ function tickZoom() {
   const newDist = Math.max(controls.minDistance, Math.min(controls.maxDistance, distance + zoomVelocity));
   const dir = camera.position.clone().sub(controls.target).normalize();
 
-  // Pri zoomovaní dnu skontrolujeme či nie je stena v ceste
-  // Lúč ide od kamery SMEROM k budove - zasiahne predné plochy stien
   if (zoomVelocity < 0 && buildingMeshes.length > 0) {
     const dirToBuilding = controls.target.clone().sub(camera.position).normalize();
     const raycaster = new THREE.Raycaster(camera.position.clone(), dirToBuilding, 0.1, distance);
@@ -512,6 +519,41 @@ function tickZoom() {
 }
 
 // ── ZRKADLÁ ──
+function disposeModel(model) {
+  model.traverse(obj => {
+    if (obj.isReflector) {
+      if (obj.getRenderTarget) obj.getRenderTarget().dispose();
+      return;
+    }
+    if (obj.geometry) {
+      obj.geometry.dispose();
+    }
+    let mats = [];
+    if (Array.isArray(obj.material)) {
+      mats = obj.material;
+    } else {
+      mats = [obj.material];
+    }
+    mats.forEach(mat => {
+      if (!mat) return;
+      ['map','normalMap','roughnessMap','metalnessMap','emissiveMap','aoMap','lightMap','alphaMap','envMap'].forEach(key => {
+        if (mat[key]) mat[key].dispose();
+      });
+      mat.dispose();
+    });
+  });
+}
+
+function disposeGroupSprites(group) {
+  group.traverse(obj => {
+    if (obj.isSprite && obj.material) {
+      if (obj.material.map) obj.material.map.dispose();
+      obj.material.dispose();
+    }
+  });
+  while (group.children.length) group.remove(group.children[0]);
+}
+
 function replaceMirrorsInModel(model) {
   const toReplace = [];
   model.traverse(mesh => {
@@ -566,19 +608,6 @@ function replaceMirrorsInModel(model) {
   });
 }
 
-function fitCameraToModel(object) {
-  const box = new THREE.Box3().setFromObject(object);
-  const size = box.getSize(new THREE.Vector3());
-  const center = box.getCenter(new THREE.Vector3());
-  const maxDim = Math.max(size.x, size.y, size.z);
-  const fov = camera.fov * (Math.PI / 180);
-  const distance = (maxDim / 2) / Math.tan(fov / 2) * 1.5;
-  camera.position.set(center.x + distance * 0.6, center.y + distance * 0.5, center.z + distance * 0.6);
-  controls.target.copy(center);
-  controls.minDistance = maxDim * 0.1;
-  controls.maxDistance = distance * 4;
-  controls.update();
-}
 
 let currentWP = 0;
 let anim = null;
@@ -636,13 +665,12 @@ function tickAnim(now) {
   if (progress >= 1) anim = null;
 }
 
-// Collision
 let roomBox = null;
 let buildingSphere = null;
 let isInterior = false;
+const lastCamPos = new THREE.Vector3();
 
 function tickPushBack() {
-  // Interiér: target sa nesmie dostať cez steny miestnosti
   if (isInterior && roomBox) {
     const margin = 0.8;
     const target = controls.target;
@@ -657,11 +685,9 @@ function tickPushBack() {
     }
   }
 
-  // Exteriér: sférická kolízia - funguje zo všetkých smerov rovnako (zoom, orbit, pan)
   if (!isInterior && buildingSphere) {
     const distFromCenter = camera.position.distanceTo(buildingSphere.center);
     if (distFromCenter < buildingSphere.radius) {
-      // Vytlačíme kameru na povrch sféry
       const direction = camera.position.clone().sub(buildingSphere.center).normalize();
       camera.position.copy(buildingSphere.center).addScaledVector(direction, buildingSphere.radius);
       zoomVelocity = 0;
@@ -674,7 +700,6 @@ function tickPushBack() {
 const labelGroup = new THREE.Group();
 scene.add(labelGroup);
 
-// Rozdelí dlhý text na riadky aby sa zmestil do maxWidth
 function wrapText(ctx, text, maxWidth) {
   const words = text.split(' ');
   const lines = [];
@@ -769,7 +794,7 @@ function createInfoLabel(label) {
   const sprite = new THREE.Sprite(new THREE.SpriteMaterial({
     map: new THREE.CanvasTexture(canvas),
     transparent: true,
-    depthTest: false
+    depthTest: true
   }));
 
   const scale = label.scale || 1;
@@ -780,7 +805,7 @@ function createInfoLabel(label) {
 }
 
 function showLabelsForModel(modelPath) {
-  while (labelGroup.children.length) labelGroup.remove(labelGroup.children[0]);
+  disposeGroupSprites(labelGroup);
   (CONFIG.labels || []).forEach(label => { if (label.model === modelPath) createInfoLabel(label); });
 }
 
@@ -790,7 +815,7 @@ scene.add(orbGroup);
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
-function createOrb(waypoint, index) {
+function createOrb(waypoint, index, scale = 1) {
   const group = new THREE.Group();
   group.add(new THREE.Mesh(
     new THREE.OctahedronGeometry(0.2),
@@ -840,10 +865,11 @@ function createOrb(waypoint, index) {
     }));
 
     label.scale.set(0.9, (canvasHeight / 64) * 0.225, 1);
-    label.position.y = 0.55 + (lines.length - 1) * 0.1;
+    label.position.y = 0.3 + (lines.length - 1) * 0.1;
     group.add(label);
   }
   group.userData = { wpIndex: index, isOrb: true };
+  group.scale.setScalar(scale);
   group.position.set(waypoint.orbPos.x, waypoint.orbPos.y, waypoint.orbPos.z);
   orbGroup.add(group);
 }
@@ -861,55 +887,100 @@ function updateOrbs(now) {
 }
 
 function showOrbsForModel(modelPath) {
-  while (orbGroup.children.length) orbGroup.remove(orbGroup.children[0]);
+  disposeGroupSprites(orbGroup);
   CONFIG.waypoints.forEach((waypoint, i) => {
     if (!waypoint.orbPos || waypoint.model !== modelPath) return;
     if (!waypoint.targetModel && !waypoint.hideFromNav) return; // hlavný waypoint miestnosti
     if (i === currentWP) return; // aktuálna pozícia - orb skry
-    createOrb(waypoint, i);
+    createOrb(waypoint, i, modelPath === 'Budova.glb' ? 3 : 1);
   });
 }
 
-let mouseDownPos = { x: 0, y: 0 };
-renderer.domElement.addEventListener('mousedown', event => { mouseDownPos = { x: event.clientX, y: event.clientY }; });
-renderer.domElement.addEventListener('click', event => {
-  const dx = event.clientX - mouseDownPos.x;
-  const dy = event.clientY - mouseDownPos.y;
-  if (dx * dx + dy * dy > 25) return; // pohyboval sa myšou = drag, nie klik
-  mouse.x = (event.clientX / innerWidth) * 2 - 1;
-  mouse.y = -(event.clientY / innerHeight) * 2 + 1;
+function findOrbAt(clientX, clientY) {
+  mouse.x = (clientX / innerWidth) * 2 - 1;
+  mouse.y = -(clientY / innerHeight) * 2 + 1;
   raycaster.setFromCamera(mouse, camera);
   const hits = raycaster.intersectObjects(orbGroup.children, true);
-  if (hits.length > 0) {
-    let obj = hits[0].object;
-    while (obj && !obj.userData.isOrb) obj = obj.parent;
-    if (obj?.userData.isOrb) goTo(obj.userData.wpIndex);
-  }
-});
+  if (!hits.length) return null;
+  let obj = hits[0].object;
+  while (obj && !obj.userData.isOrb) obj = obj.parent;
+  return obj?.userData.isOrb ? obj : null;
+}
 
 let hoveredOrb = null;
-renderer.domElement.addEventListener('mousemove', event => {
-  mouse.x = (event.clientX / innerWidth) * 2 - 1;
-  mouse.y = -(event.clientY / innerHeight) * 2 + 1;
-  raycaster.setFromCamera(mouse, camera);
-  const hits = raycaster.intersectObjects(orbGroup.children, true);
-  let newHover = null;
-  if (hits.length > 0) {
-    let obj = hits[0].object;
-    while (obj && !obj.userData.isOrb) obj = obj.parent;
-    if (obj?.userData.isOrb) newHover = obj;
-  }
-  if (newHover !== hoveredOrb) {
-    if (hoveredOrb) hoveredOrb.children[0].material.color.setHex(0x0033cc);
-    if (newHover)   newHover.children[0].material.color.setHex(0x4499ff);
-    hoveredOrb = newHover;
-  }
-  if (newHover) {
-    renderer.domElement.style.cursor = 'pointer';
-  } else {
-    renderer.domElement.style.cursor = 'default';
-  }
+function setHoveredOrb(orb) {
+  if (orb === hoveredOrb) return;
+  if (hoveredOrb) hoveredOrb.children[0].material.color.setHex(0x0033cc);
+  if (orb)        orb.children[0].material.color.setHex(0x4499ff);
+  hoveredOrb = orb;
+}
+
+// ── MYŠKA ──
+let mouseDownPos = { x: 0, y: 0 };
+let lastTouchEnd = 0;
+renderer.domElement.addEventListener('mousedown', event => { mouseDownPos = { x: event.clientX, y: event.clientY }; });
+renderer.domElement.addEventListener('click', event => {
+  if (Date.now() - lastTouchEnd < 400) return; 
+  const dx = event.clientX - mouseDownPos.x;
+  const dy = event.clientY - mouseDownPos.y;
+  if (dx * dx + dy * dy > 25) return;
+  const orb = findOrbAt(event.clientX, event.clientY);
+  if (orb) goTo(orb.userData.wpIndex);
 });
+renderer.domElement.addEventListener('mousemove', event => {
+  setHoveredOrb(findOrbAt(event.clientX, event.clientY));
+  renderer.domElement.style.cursor = hoveredOrb ? 'pointer' : 'default';
+});
+
+// ── DOTYK ──
+let touchStartPos = { x: 0, y: 0 };
+let lastPinchDist = null;
+let pinchHappened = false;
+
+renderer.domElement.addEventListener('touchstart', event => {
+  if (event.touches.length === 1) {
+    const t = event.touches[0];
+    touchStartPos = { x: t.clientX, y: t.clientY };
+    pinchHappened = false;
+    setHoveredOrb(findOrbAt(t.clientX, t.clientY));
+  } else if (event.touches.length === 2) {
+    pinchHappened = true;
+    setHoveredOrb(null);
+    const t1 = event.touches[0], t2 = event.touches[1];
+    lastPinchDist = Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
+  }
+}, { passive: true });
+
+renderer.domElement.addEventListener('touchmove', event => {
+  if (event.touches.length !== 2 || lastPinchDist === null) return;
+  event.preventDefault();
+  const t1 = event.touches[0], t2 = event.touches[1];
+  const dist = Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
+  const delta = lastPinchDist - dist;
+  if (isInterior) {
+    camera.fov = Math.max(30, Math.min(90, camera.fov + delta * 0.15));
+    camera.updateProjectionMatrix();
+  } else {
+    const camDist = camera.position.distanceTo(controls.target);
+    const speed = Math.max(camDist * 0.08, 0.3);
+    zoomVelocity += delta * 0.05 * speed;
+  }
+  lastPinchDist = dist;
+}, { passive: false });
+
+renderer.domElement.addEventListener('touchend', event => {
+  if (event.touches.length < 2) lastPinchDist = null;
+  if (event.touches.length > 0) return;
+  lastTouchEnd = Date.now();
+  setHoveredOrb(null);
+  if (pinchHappened) return;
+  const t = event.changedTouches[0];
+  const dx = t.clientX - touchStartPos.x;
+  const dy = t.clientY - touchStartPos.y;
+  if (dx * dx + dy * dy > 25) return;
+  const orb = findOrbAt(t.clientX, t.clientY);
+  if (orb) goTo(orb.userData.wpIndex);
+}, { passive: true });
 
 function updateUI() {
   const waypoint = CONFIG.waypoints[currentWP];
@@ -949,17 +1020,19 @@ function hideLoading() {
 
 const modelCache = {};
 let currentModel = null;
+let currentLoadId = 0;
 
 // Nacitaj GLB subor (pouziva sa pre loadModelForWaypoint aj pre targetModel)
 function loadGLB(path, wpIndex, onDone) {
   const waypoint = CONFIG.waypoints[wpIndex];
+  const loadId = ++currentLoadId;
 
   if (modelCache[path]) {
     switchToModel(modelCache[path], path, waypoint, onDone);
     return;
   }
 
-  setMsg('Načít avam ' + waypoint.name + '…');
+  setMsg('Načítavam ' + (waypoint.name || path) + '…');
   document.getElementById('loading').classList.remove('hidden');
 
   const dracoLoader = new DRACOLoader();
@@ -968,6 +1041,7 @@ function loadGLB(path, wpIndex, onDone) {
   loader.setDRACOLoader(dracoLoader);
   loader.load(path,
     gltf => {
+      if (loadId !== currentLoadId) return;
       gltf.scene.traverse(mesh => {
         if (!mesh.isMesh) return;
         mesh.castShadow = false; mesh.receiveShadow = false;
@@ -986,11 +1060,21 @@ function loadGLB(path, wpIndex, onDone) {
       if (path === 'Tanecna.glb') replaceMirrorsInModel(gltf.scene);
       switchToModel(gltf.scene, path, waypoint, onDone);
     },
-    xhr => { if (xhr.total) setMsg(waypoint.name + ': ' + Math.round(xhr.loaded / xhr.total * 100) + ' %'); },
+    xhr => { if (loadId !== currentLoadId) return; if (xhr.total) setMsg((waypoint.name || path) + ': ' + Math.round(xhr.loaded / xhr.total * 100) + ' %'); },
     err => {
-      console.warn('GLB nenajdeny:', path, err);
-      setMsg(path + ' nenajdeny');
-      setTimeout(() => { document.getElementById('loading').classList.add('hidden'); if (onDone) onDone(); }, 1500);
+      if (loadId !== currentLoadId) return;
+      const fullUrl = new URL(path, window.location.href).href;
+      console.error('GLB nenajdeny:', fullUrl, err);
+      let hint = '';
+      if (window.location.protocol === 'file:') {
+        hint = ' (otvor cez lokálny server, nie file://)';
+      }
+      setMsg(path + ' nenajdeny' + hint);
+      setTimeout(() => {
+        if (loadId !== currentLoadId) return;
+        document.getElementById('loading').classList.add('hidden');
+        if (onDone) onDone();
+      }, 1500);
     }
   );
 }
@@ -1001,14 +1085,21 @@ function loadModelForWaypoint(index, onDone) {
 }
 
 function switchToModel(newScene, loadedPath, waypoint, onDone) {
-  if (currentModel) scene.remove(currentModel);
+  if (currentModel) {
+    scene.remove(currentModel);
+    const oldPath = Object.keys(modelCache).find(k => modelCache[k] === currentModel);
+    if (oldPath && oldPath !== loadedPath) {
+      delete modelCache[oldPath];
+      disposeModel(currentModel);
+    }
+  }
   currentModel = newScene;
   scene.add(currentModel);
 
   const isExterior = loadedPath === 'Budova.glb';
   isInterior = !isExterior;
 
-  // Nastav kolíziu
+  // Nastavenuie kolízie
   buildingMeshes = [];
   if (isInterior) {
     roomBox = new THREE.Box3().setFromObject(newScene);
@@ -1083,7 +1174,6 @@ function switchToModel(newScene, loadedPath, waypoint, onDone) {
       controls.target.set(waypoint.tgt.x, waypoint.tgt.y, waypoint.tgt.z);
     }
   } else {
-    // Interiér - umiestni kameru dovnútra (stred miestnosti, výška očí)
     const center = box.getCenter(new THREE.Vector3());
     if (isExterior) {
       fitCameraToModel(currentModel);
@@ -1102,7 +1192,6 @@ function switchToModel(newScene, loadedPath, waypoint, onDone) {
 
   showOrbsForModel(loadedPath);
   showLabelsForModel(loadedPath);
-  // Reset lastCamPos na aktuálnu pozíciu kamery - hned po nastaveni
   lastCamPos.copy(camera.position);
   document.getElementById('loading').classList.add('hidden');
 

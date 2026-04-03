@@ -1,7 +1,7 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { background: #0a0a0f; color: #fff; font-family: 'Segoe UI', system-ui, sans-serif; overflow: hidden; height: 100vh; }
   #canvas-container { position: fixed; inset: 0; }
-  canvas { display: block; }
+  canvas { display: block; -webkit-tap-highlight-color: transparent; touch-action: none; }
   #hud-top {
     position: fixed; top: 0; left: 0; right: 0; padding: 18px 28px;
     display: flex; justify-content: space-between; align-items: flex-start;
