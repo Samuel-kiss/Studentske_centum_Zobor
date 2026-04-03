@@ -6,24 +6,24 @@ import { Reflector }     from 'three/addons/objects/Reflector.js';
 
 const CONFIG = {
   waypoints: [
-    // EXTERIÉR  (budova.glb)
+    // EXTERIÉR  (Budova.glb)
     {
       name: 'Exteriér',
       desc: 'Vonkajší pohľad na budovu',
-      model: 'budova.glb',
+      model: 'Budova.glb',
       cam: { x: -34.39, y: 5.93, z: 20.03 },  tgt: { x: -4.87, y: -2.83, z: 2.23 },
     },
     // -- Orby --
-    { name: 'Vstupná hala',     model: 'budova.glb', targetModel: 'Vchod.glb',
+    { name: 'Vstupná hala',     model: 'Budova.glb', targetModel: 'Vchod.glb',
       cam: { x: 1.94, y: -0.05, z: 0.79 }, tgt: { x: 1.85, y: -0.05, z: 0.84 },
       orbPos: { x: -7.75, y: -5.5, z: 7 }, hideFromNav: true },
-    { name: 'Ubytovacia chodba', model: 'budova.glb', targetModel: 'Ubytovanie.glb',
+    { name: 'Ubytovacia chodba', model: 'Budova.glb', targetModel: 'Ubytovanie.glb',
       cam: { x: 8.52, y: -1.48, z: -0.38 }, tgt: { x: 8.42, y: -1.48, z: -0.38 },
       orbPos: { x: 12, y: -4.5, z: -12.2 }, hideFromNav: true },
-    { name: 'Centrum',          model: 'budova.glb', targetModel: 'Centrum.glb',
+    { name: 'Centrum',          model: 'Budova.glb', targetModel: 'Centrum.glb',
       cam: { x: 14.77, y: -0.05, z: -0.78 },  tgt: { x: 13.78, y: -0.14, z: -0.75 },
       orbPos: { x: 15.7, y: -5.46, z: 9.25 }, hideFromNav: true },
-    { name: 'Sála 2',           model: 'budova.glb', targetModel: 'Sala2.glb',
+    { name: 'Sála 2',           model: 'Budova.glb', targetModel: 'Sala2.glb',
       cam: { x: -0.26, y: 0.68, z: 0.32 },  tgt: { x: -0.23, y: 0.54, z: -0.67 },
       orbPos: { x: 15.7, y: -5.46, z: -0.99 }, hideFromNav: true },
 
@@ -153,7 +153,7 @@ const CONFIG = {
       orbPos: { x: 15.23, y: -0.5, z: -1.7 }, hideFromNav: true,
     },
     {
-      name: 'Exit',  model: 'Centrum.glb',  targetModel: 'budova.glb',
+      name: 'Exit',  model: 'Centrum.glb',  targetModel: 'Budova.glb',
       cam: { x: -34.39, y: 5.93, z: 20.03 },  tgt: { x: -4.87, y: -2.83, z: 2.23 },
       orbPos: { x: 15.50, y: -0.5, z: -0.82 }, hideFromNav: true,
     },
@@ -193,7 +193,7 @@ const CONFIG = {
       orbPos: { x: 0.31, y: -2.5, z: 6.37 }, hideFromNav: true,
     },
     {
-      name: 'Exit',  model: 'Ubytovanie.glb',  targetModel: 'budova.glb',
+      name: 'Exit',  model: 'Ubytovanie.glb',  targetModel: 'Budova.glb',
       cam: { x: -34.39, y: 5.0, z: 20.03 },  tgt: { x: -4.87, y: -2.83, z: 2.23 },
       orbPos: { x: 8.32, y: -1.75, z: -0.36 }, hideFromNav: true,
     },
@@ -236,7 +236,7 @@ const CONFIG = {
       orbPos: { x: -5.80, y: -0.7, z: 3 }, hideFromNav: true,
     },
     {
-      name: 'Exit',  model: 'Sala2.glb',  targetModel: 'budova.glb',
+      name: 'Exit',  model: 'Sala2.glb',  targetModel: 'Budova.glb',
       cam: { x: -34.39, y: 5.93, z: 20.03 },  tgt: { x: -4.87, y: -2.83, z: 2.23 },
       orbPos: { x: 5.5, y: -0.7, z: 4 }, hideFromNav: true,
     },
@@ -1005,7 +1005,7 @@ function switchToModel(newScene, loadedPath, waypoint, onDone) {
   currentModel = newScene;
   scene.add(currentModel);
 
-  const isExterior = loadedPath === 'budova.glb';
+  const isExterior = loadedPath === 'Budova.glb';
   isInterior = !isExterior;
 
   // Nastav kolíziu
