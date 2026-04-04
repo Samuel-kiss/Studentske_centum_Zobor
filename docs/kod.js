@@ -631,6 +631,7 @@ function goTo(index) {
   if (index < 0 || index >= CONFIG.waypoints.length) return;
   currentWP = index;
   updateUI();
+  if (typeof closeMobileMenu === 'function') closeMobileMenu();
   const waypoint = CONFIG.waypoints[index];
   const currentPath = Object.keys(modelCache).find(k => modelCache[k] === currentModel);
   const modelToLoad = waypoint.targetModel || waypoint.model;
@@ -1008,8 +1009,9 @@ function updateUI() {
   const roomWp = getCurrentRoomWaypoint();
   document.getElementById('waypoint-label').textContent = roomWp.name || '';
   document.getElementById('waypoint-sub').textContent = roomWp.desc || '';
-  // Zvýrazni aktívny floor a room podľa hlavného waypointu miestnosti
   const roomWpIndex = CONFIG.waypoints.indexOf(roomWp);
+
+  // Desktop nav
   document.querySelectorAll('.room-btn').forEach(btn => {
     btn.classList.toggle('active', +btn.dataset.wpIndex === roomWpIndex);
   });
@@ -1017,6 +1019,16 @@ function updateUI() {
     const hasActive = !!btn.querySelector('.room-btn.active');
     const isDirectActive = roomWp.floor === btn.dataset.floorId && !btn.querySelector('.floor-dropdown');
     btn.classList.toggle('active', hasActive || isDirectActive);
+  });
+
+  // Mobilný panel
+  document.querySelectorAll('.mob-room-btn').forEach(btn => {
+    btn.classList.toggle('active', +btn.dataset.wpIndex === roomWpIndex);
+  });
+  document.querySelectorAll('.mob-floor-hdr').forEach(hdr => {
+    const hasActive = !!hdr.nextElementSibling?.querySelector('.mob-room-btn.active');
+    const isDirectActive = roomWp.floor === hdr.dataset.floorId && !hdr.nextElementSibling?.querySelector('.mob-room-btn');
+    hdr.classList.toggle('active', hasActive || isDirectActive);
   });
 }
 
@@ -1066,6 +1078,62 @@ CONFIG.floors.forEach(floor => {
 
 document.addEventListener('click', e => {
   if (!e.target.closest('#floor-nav')) closeAllDropdowns();
+});
+
+// ── MOBILNÝ HAMBURGER PANEL ──
+const mobileMenu = document.getElementById('mobile-menu');
+const menuBtn    = document.getElementById('menu-btn');
+
+function closeMobileMenu() {
+  mobileMenu.classList.remove('open');
+  menuBtn.textContent = '☰';
+}
+
+menuBtn.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.contains('open');
+  if (isOpen) { closeMobileMenu(); }
+  else { mobileMenu.classList.add('open'); menuBtn.textContent = '✕'; }
+});
+
+CONFIG.floors.forEach(floor => {
+  const items = CONFIG.waypoints
+    .map((wp, i) => ({ wp, i }))
+    .filter(({ wp }) => wp.floor === floor.id);
+  if (!items.length) return;
+
+  const section = document.createElement('div');
+  section.className = 'mob-floor';
+
+  const hdr = document.createElement('button');
+  hdr.className = 'mob-floor-hdr';
+  hdr.dataset.floorId = floor.id;
+
+  const roomsDiv = document.createElement('div');
+  roomsDiv.className = 'mob-rooms';
+
+  if (items.length === 1) {
+    hdr.innerHTML = `<span>${floor.label}</span>`;
+    hdr.onclick = () => { goTo(items[0].i); closeMobileMenu(); };
+  } else {
+    hdr.innerHTML = `<span>${floor.label}</span><span class="chevron">▾</span>`;
+    items.forEach(({ wp, i }) => {
+      const rb = document.createElement('button');
+      rb.className = 'mob-room-btn';
+      rb.textContent = wp.name;
+      rb.dataset.wpIndex = i;
+      rb.onclick = () => { goTo(i); closeMobileMenu(); };
+      roomsDiv.appendChild(rb);
+    });
+    hdr.addEventListener('click', () => {
+      const wasOpen = hdr.classList.contains('open');
+      mobileMenu.querySelectorAll('.mob-floor-hdr').forEach(h => h.classList.remove('open'));
+      if (!wasOpen) hdr.classList.add('open');
+    });
+  }
+
+  section.appendChild(hdr);
+  section.appendChild(roomsDiv);
+  mobileMenu.appendChild(section);
 });
 
 document.addEventListener('keydown', event => {
