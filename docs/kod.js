@@ -926,7 +926,10 @@ function setHoveredOrb(orb) {
 // ── MYŠKA ──
 let mouseDownPos = { x: 0, y: 0 };
 let lastTouchEnd = 0;
-renderer.domElement.addEventListener('mousedown', event => { mouseDownPos = { x: event.clientX, y: event.clientY }; anim = null; });
+renderer.domElement.addEventListener('mousedown', event => {
+  mouseDownPos = { x: event.clientX, y: event.clientY };
+  if (Date.now() - lastTouchEnd > 400) anim = null;
+});
 renderer.domElement.addEventListener('click', event => {
   if (Date.now() - lastTouchEnd < 400) return; 
   const dx = event.clientX - mouseDownPos.x;
@@ -955,6 +958,7 @@ renderer.domElement.addEventListener('touchstart', event => {
   } else if (event.touches.length === 2) {
     pinchHappened = true;
     setHoveredOrb(null);
+    controls.enabled = false;
     const t1 = event.touches[0], t2 = event.touches[1];
     lastPinchDist = Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
   }
@@ -967,18 +971,21 @@ renderer.domElement.addEventListener('touchmove', event => {
   const dist = Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
   const delta = lastPinchDist - dist;
   if (isInterior) {
-    camera.fov = Math.max(30, Math.min(90, camera.fov + delta * 0.15));
+    camera.fov = Math.max(30, Math.min(90, camera.fov + delta * 0.06));
     camera.updateProjectionMatrix();
   } else {
     const camDist = camera.position.distanceTo(controls.target);
     const speed = Math.max(camDist * 0.08, 0.3);
-    zoomVelocity += delta * 0.05 * speed;
+    zoomVelocity += delta * 0.02 * speed;
   }
   lastPinchDist = dist;
 }, { passive: false });
 
 renderer.domElement.addEventListener('touchend', event => {
-  if (event.touches.length < 2) lastPinchDist = null;
+  if (event.touches.length < 2) {
+    lastPinchDist = null;
+    controls.enabled = true;
+  }
   if (event.touches.length > 0) return;
   lastTouchEnd = Date.now();
   setHoveredOrb(null);
