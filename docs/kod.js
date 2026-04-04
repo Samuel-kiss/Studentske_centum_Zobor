@@ -10,6 +10,7 @@ const CONFIG = {
     {
       name: 'Exteriér',
       desc: 'Vonkajší pohľad na budovu',
+      floor: 'exterior',
       model: 'Budova.glb',
       cam: { x: -34.39, y: 5.93, z: 20.03 },  tgt: { x: -4.87, y: -2.83, z: 2.23 },
     },
@@ -29,7 +30,7 @@ const CONFIG = {
 
     // Vstupná Hala (Vchod.glb)
     {
-      name: 'Vstupná hala',model: 'Vchod.glb',
+      name: 'Vstupná hala', floor: 'prizemie', model: 'Vchod.glb',
       cam: { x: 1.94, y: -0.05, z: 0.79 }, tgt: { x: 1.85, y: -0.05, z: 0.84 },
       orbPos: null,
     },
@@ -114,7 +115,7 @@ const CONFIG = {
 
     //Centrum (Centrum.glb)
     {
-      name: 'Centrum',  desc: 'Študentské centrum', model: 'Centrum.glb',
+      name: 'Centrum',  desc: 'Študentské centrum', floor: 'prizemie', model: 'Centrum.glb',
       cam: { x: -0.55, y: -0.03, z: -0.22 },   tgt: { x: 0.21, y: -0.12, z: 0.42 },
     },
     //Orby
@@ -165,7 +166,7 @@ const CONFIG = {
 
     // Ubytovanie (Ubytovanie.glb)
     {
-      name: 'Ubytovanie', model: 'Ubytovanie.glb',
+      name: 'Ubytovanie', floor: 'prizemie', model: 'Ubytovanie.glb',
       cam: { x: 0.38, y: -0.28, z: -0.11 },  tgt: { x: 0.93, y: -0.44, z: -0.22 },
     },
     // --Orby--
@@ -205,7 +206,7 @@ const CONFIG = {
 
     //Sala 1 (Sala1.glb)
     {
-      name: 'Sála 1', model: 'Sala1.glb',
+      name: 'Sála 1', floor: 'prizemie', model: 'Sala1.glb',
       cam: { x: -0.03, y: -0.53, z: -0.30 },     tgt: { x: -0.03, y: -0.54, z: -0.20 },
     },
     // --Orby--
@@ -227,14 +228,14 @@ const CONFIG = {
 
     //Sala 2 (Sala2.glb)
     {
-      name: 'Sála 2', desc: 'Druhá sála', model: 'Sala2.glb',
+      name: 'Sála 2', desc: 'Druhá sála', floor: 'prizemie', model: 'Sala2.glb',
       cam: { x: -0.26, y: 0.68, z: 0.32 },  tgt: { x: -0.23, y: 0.54, z: -0.67 },
     },
     // --Orby--
     {
       name: 'Vstupná hala',  model: 'Sala2.glb',  targetModel: 'Vchod.glb',
       cam: { x: 1.94, y: -0.05, z: 0.79 }, tgt: { x: 1.85, y: -0.05, z: 0.84 },
-      orbPos: { x: -5.80, y: -0.7, z: 3 }, hideFromNav: true,
+      orbPos: { x: -5.50, y: -0.7, z: 2.80 }, hideFromNav: true,
     },
     {
       name: 'Exit',  model: 'Sala2.glb',  targetModel: 'Budova.glb',
@@ -244,7 +245,7 @@ const CONFIG = {
 
     //Tanečná sála (Tanecna.glb)
     {
-      name: 'Tanečná miestnosť', model: 'Tanecna.glb',
+      name: 'Tanečná miestnosť', floor: 'poschodie1', model: 'Tanecna.glb',
       cam: { x: -0.21, y: -0.40, z: 1.83 }, tgt: { x: 0.79, y: -0.41, z: 1.83 },
     },
     // --Orby--
@@ -288,7 +289,7 @@ const CONFIG = {
 
     // Spoločenská miestnosť (Spolocenska.glb)
     {
-      name: 'Spoločenská miestnosť',       model: 'Spolocenska.glb',
+      name: 'Spoločenská miestnosť', floor: 'poschodie1', model: 'Spolocenska.glb',
       cam: { x: -0.12, y: 0, z: 0.23 },    tgt: { x: -1.12, y: 0, z: 0.24 },
     },
     // --Orby--
@@ -302,6 +303,7 @@ const CONFIG = {
     {
       name: 'Miestnosť pre kapelu',
       desc: 'Miestnosť pre kapelu',
+      floor: 'poschodie1',
       model: 'Kapela.glb',
       cam: { x: 0.39, y: -0.28, z: -0.12 },  tgt: { x: 0.39, y: -0.28, z: -0.11 },
       orbPos: null,
@@ -315,7 +317,7 @@ const CONFIG = {
 
     // Predsieň (Chodba.glb)
     {
-      name: 'Malá chodba',  model: 'Chodba.glb',
+      name: 'Malá chodba', floor: 'poschodie1', model: 'Chodba.glb',
       cam: { x: -2.13, y: -0.21, z: -0.16 },    tgt: { x: -1.21, y: -0.53, z: 0.09 },
     },
     // --Orby--
@@ -337,7 +339,7 @@ const CONFIG = {
 
     // Nácviková miestnosť (Sklad.glb)
     {
-      name: 'Nácviková miestnosť',  model: 'Sklad.glb',
+      name: 'Nácviková miestnosť', floor: 'poschodie1', model: 'Sklad.glb',
       cam: { x: -0.04, y: -0.62, z: -0.25 },  tgt: { x: -0.90, y: -0.80, z: 0.23 },
     },
     // --Orby--
@@ -349,7 +351,7 @@ const CONFIG = {
 
     //  Šatňa (Satna.glb)
     {
-      name: 'Šatňa',  model: 'Satna.glb',
+      name: 'Šatňa', floor: 'poschodie1', model: 'Satna.glb',
       cam: { x: -1.76, y: -0.47, z: 0.13 },  tgt: { x: -0.79, y: -0.69, z: 0.20 },
     },
     // --Orby--
@@ -361,7 +363,7 @@ const CONFIG = {
 
     // Učebňa Informatiky (Infmiestnosť.glb)
     {
-      name: 'Počítačová učebňa',   model: 'Infmiestnosť.glb',
+      name: 'Počítačová učebňa', floor: 'poschodie2', model: 'Infmiestnosť.glb',
       cam: { x: -0.68, y: -0.13, z: 1.67 },   tgt: { x: -0.74, y: -0.20, z: 2.67 },
     },
     // --Orby--
@@ -373,7 +375,7 @@ const CONFIG = {
 
     // Učebňa 1 (UC1.glb)
     {
-      name: 'Učebňa 1',model: 'UC1.glb',
+      name: 'Učebňa 1', floor: 'poschodie2', model: 'UC1.glb',
       cam: { x: -2.69, y: -0.41, z: -0.39 },   tgt: { x: -1.70, y: -0.54, z: -0.42 },
     },
     // --Orby--
@@ -385,7 +387,7 @@ const CONFIG = {
     
     // Učebňa 2 (UC2.glb)
     {
-      name: 'Učebňa 2', model: 'UC2.glb',
+      name: 'Učebňa 2', floor: 'poschodie2', model: 'UC2.glb',
       cam: { x: -1.45, y: -0.53, z: -0.27 },    tgt: { x: -0.46, y: -0.60, z: -0.44 },
     },
     // --Orby--
@@ -396,6 +398,12 @@ const CONFIG = {
     },
 
 
+  ],
+  floors: [
+    { id: 'exterior',   label: 'Exteriér' },
+    { id: 'prizemie',   label: 'Prízemie' },
+    { id: 'poschodie1', label: '1. poschodie' },
+    { id: 'poschodie2', label: '2. poschodie' },
   ],
   animDuration: 1400,
   bg: 0x87CEEB,
@@ -918,7 +926,7 @@ function setHoveredOrb(orb) {
 // ── MYŠKA ──
 let mouseDownPos = { x: 0, y: 0 };
 let lastTouchEnd = 0;
-renderer.domElement.addEventListener('mousedown', event => { mouseDownPos = { x: event.clientX, y: event.clientY }; });
+renderer.domElement.addEventListener('mousedown', event => { mouseDownPos = { x: event.clientX, y: event.clientY }; anim = null; });
 renderer.domElement.addEventListener('click', event => {
   if (Date.now() - lastTouchEnd < 400) return; 
   const dx = event.clientX - mouseDownPos.x;
@@ -938,6 +946,7 @@ let lastPinchDist = null;
 let pinchHappened = false;
 
 renderer.domElement.addEventListener('touchstart', event => {
+  anim = null;
   if (event.touches.length === 1) {
     const t = event.touches[0];
     touchStartPos = { x: t.clientX, y: t.clientY };
@@ -982,32 +991,76 @@ renderer.domElement.addEventListener('touchend', event => {
   if (orb) goTo(orb.userData.wpIndex);
 }, { passive: true });
 
-function updateUI() {
-  const waypoint = CONFIG.waypoints[currentWP];
-  document.getElementById('waypoint-label').textContent = waypoint.name;
-  document.getElementById('waypoint-sub').textContent = waypoint.desc || `Zastávka ${currentWP+1} / ${CONFIG.waypoints.length}`;
-  document.querySelectorAll('.wp-btn').forEach(button => button.classList.toggle('active', +button.dataset.wpIndex === currentWP));
-  document.querySelectorAll('.dot').forEach(dot => dot.classList.toggle('active', +dot.dataset.wpIndex === currentWP));
+function getCurrentRoomWaypoint() {
+  const wp = CONFIG.waypoints[currentWP];
+  const activeModel = wp.targetModel || wp.model;
+  return CONFIG.waypoints.find(w => w.model === activeModel && w.floor) || wp;
 }
 
-const wpWrap = document.getElementById('wp-buttons');
-const prog   = document.getElementById('progress');
-let navCount = 0;
-CONFIG.waypoints.forEach((waypoint, i) => {
-  if (waypoint.hideFromNav) return;
-  navCount++;
+function updateUI() {
+  const roomWp = getCurrentRoomWaypoint();
+  document.getElementById('waypoint-label').textContent = roomWp.name || '';
+  document.getElementById('waypoint-sub').textContent = roomWp.desc || '';
+  // Zvýrazni aktívny floor a room podľa hlavného waypointu miestnosti
+  const roomWpIndex = CONFIG.waypoints.indexOf(roomWp);
+  document.querySelectorAll('.room-btn').forEach(btn => {
+    btn.classList.toggle('active', +btn.dataset.wpIndex === roomWpIndex);
+  });
+  document.querySelectorAll('.floor-btn').forEach(btn => {
+    const hasActive = !!btn.querySelector('.room-btn.active');
+    const isDirectActive = roomWp.floor === btn.dataset.floorId && !btn.querySelector('.floor-dropdown');
+    btn.classList.toggle('active', hasActive || isDirectActive);
+  });
+}
+
+// Build header floor navigation
+const floorNav = document.getElementById('floor-nav');
+
+function closeAllDropdowns() {
+  floorNav.querySelectorAll('.floor-btn').forEach(b => b.classList.remove('open'));
+}
+
+CONFIG.floors.forEach(floor => {
+  const items = CONFIG.waypoints
+    .map((wp, i) => ({ wp, i }))
+    .filter(({ wp }) => wp.floor === floor.id);
+  if (!items.length) return;
+
   const btn = document.createElement('button');
-  btn.className = 'wp-btn';
-  btn.dataset.wpIndex = i;
-  btn.innerHTML = `<span class="wp-num">Zastávka ${navCount}</span><span class="wp-name">${waypoint.name}</span>`;
-  btn.onclick = () => goTo(i);
-  wpWrap.appendChild(btn);
-  const dot = document.createElement('div'); dot.className = 'dot'; dot.dataset.wpIndex = i;
-  prog.appendChild(dot);
+  btn.className = 'floor-btn';
+  btn.dataset.floorId = floor.id;
+
+  if (items.length === 1) {
+    btn.innerHTML = `<span>${floor.label}</span>`;
+    btn.onclick = () => goTo(items[0].i);
+  } else {
+    const dropdown = document.createElement('div');
+    dropdown.className = 'floor-dropdown';
+    items.forEach(({ wp, i }) => {
+      const roomBtn = document.createElement('button');
+      roomBtn.className = 'room-btn';
+      roomBtn.textContent = wp.name;
+      roomBtn.dataset.wpIndex = i;
+      roomBtn.onclick = e => { e.stopPropagation(); goTo(i); closeAllDropdowns(); };
+      dropdown.appendChild(roomBtn);
+    });
+    btn.innerHTML = `<span>${floor.label}</span><span class="chevron">▾</span>`;
+    btn.appendChild(dropdown);
+    btn.addEventListener('click', e => {
+      if (e.target.closest('.floor-dropdown')) return;
+      const isOpen = btn.classList.contains('open');
+      closeAllDropdowns();
+      if (!isOpen) btn.classList.add('open');
+    });
+  }
+
+  floorNav.appendChild(btn);
 });
 
-document.getElementById('prev-btn').onclick = () => goTo(currentWP - 1);
-document.getElementById('next-btn').onclick = () => goTo(currentWP + 1);
+document.addEventListener('click', e => {
+  if (!e.target.closest('#floor-nav')) closeAllDropdowns();
+});
+
 document.addEventListener('keydown', event => {
   if (event.key === 'ArrowRight') goTo(currentWP + 1);
   if (event.key === 'ArrowLeft')  goTo(currentWP - 1);
@@ -1015,7 +1068,6 @@ document.addEventListener('keydown', event => {
 
 function hideLoading() {
   document.getElementById('loading').classList.add('hidden');
-  setTimeout(() => document.getElementById('hint').classList.add('hidden'), 4500);
 }
 
 const modelCache = {};
@@ -1060,7 +1112,7 @@ function loadGLB(path, wpIndex, onDone) {
       if (path === 'Tanecna.glb') replaceMirrorsInModel(gltf.scene);
       switchToModel(gltf.scene, path, waypoint, onDone);
     },
-    xhr => { if (loadId !== currentLoadId) return; if (xhr.total) setMsg((waypoint.name || path) + ': ' + Math.round(xhr.loaded / xhr.total * 100) + ' %'); },
+    xhr => { if (loadId !== currentLoadId) return; if (xhr.total) setMsg((waypoint.name || path) + ': ' + Math.min(100, Math.round(xhr.loaded / xhr.total * 100)) + ' %'); },
     err => {
       if (loadId !== currentLoadId) return;
       const fullUrl = new URL(path, window.location.href).href;
